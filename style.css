@@ -20,3 +20,16 @@ h2{
   margin-bottom: 30px;
   font-size: 2rem;
 }
+input{
+  border: 2px solid gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+button#add{
+  padding: 5px 20px;
+  border: 2px solid rgb(54, 183, 4);
+  background-color: rgb(9, 186, 62);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
