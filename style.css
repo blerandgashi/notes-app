@@ -33,3 +33,24 @@ button#add{
   border-radius: 5px;
   cursor: pointer;
 }
+.notes-content{
+  width: 100%;
+}
+.input-text-value{
+  margin-top: 15px;
+  text-align: left;
+}
+.notes{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.delete-btn{
+  background-color: red;
+  border: 0;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
