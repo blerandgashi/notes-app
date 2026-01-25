@@ -8,9 +8,9 @@ function renderNotes(){
 
   notesContent.innerHTML = "";
 
-  notes.forEach(notesEl => {
+  notes.forEach((notesEl, index) => {
     let html = `
-      <div class="notes">
+      <div class="notes" data-index="${index}">
         <p class="input-text-value">${notesEl}</p>
         <button class="delete-btn">Delete</button>
       </div>
@@ -38,3 +38,21 @@ addBtn.addEventListener("click", function(){
   inputEl.value = "";
 })
 renderNotes()
+
+
+notesContent.addEventListener("click", function(e){
+
+  if (e.target.classList.contains("delete-btn")) {
+    
+    const noteDiv = e.target.closest(".notes");
+    const index = noteDiv.dataset.index;
+
+    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+    notes.splice(index, 1)
+
+    localStorage.setItem("notes", JSON.stringify(notes))
+
+  }
+  renderNotes();
+  
+})
