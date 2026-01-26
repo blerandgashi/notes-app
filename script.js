@@ -19,21 +19,30 @@ function renderNotes(){
     
   });
 }
+if (inputEl.value === "") {
+  document.querySelector("#clear-all").disabled = true;
+}
 
 addBtn.addEventListener("click", function(){
+  document.querySelector("#clear-all").disabled = false;
 
   let inputText = inputEl.value;
   
   if (!inputText) {
+    return
+  }else if (inputText.length > 40) {
+    alert("Exceeded the characters limit!");
     return
   }
 
   const upperCaseFirstChar = inputText.charAt(0).toUpperCase() + inputText.slice(1);
   
   let notes = JSON.parse(localStorage.getItem("notes")) || [];
+  console.log(notes.length);
+  
   notes.push(upperCaseFirstChar);
   localStorage.setItem("notes", JSON.stringify(notes));
-  
+
   renderNotes()
   inputEl.value = "";
 })
