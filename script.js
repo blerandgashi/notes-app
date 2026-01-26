@@ -54,5 +54,10 @@ notesContent.addEventListener("click", function(e){
 
   }
   renderNotes();
-  
+
+})
+
+document.querySelector("#clear-all").addEventListener("click", function(){
+  localStorage.removeItem("notes");
+  notesContent.innerHTML = "";
 })
