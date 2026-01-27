@@ -17,7 +17,7 @@ body{
   border-radius: 10px;
 }
 h2{
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 2rem;
 }
 input{
@@ -53,4 +53,18 @@ button#add{
   color: white;
   border-radius: 5px;
   cursor: pointer;
+}
+#clear-all{
+  margin-top: 25px;
+  background-color: red;
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+.notes-counter,
+.character-counter{
+  margin-bottom: 10px;
+  color: gray;
 }
