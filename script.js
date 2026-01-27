@@ -1,9 +1,13 @@
 const inputEl = document.querySelector("#text-input");
 const notesContent = document.querySelector("#notes");
+const notesCount = document.querySelector(".notes-counter")
+const charsCounter = document.querySelector(".character-counter")
 
 const addBtn = document.querySelector("#add");
+let countNotes = 0;
 
 function renderNotes(){
+
   const notes = JSON.parse(localStorage.getItem("notes")) || [];
 
   notesContent.innerHTML = "";
@@ -32,10 +36,16 @@ addBtn.addEventListener("click", function(){
     return
   }else if (inputText.length > 40) {
     alert("Exceeded the characters limit!");
+    inputEl.value = ""
+    countChars = 0;
+    charsCounter.textContent = "Character counter: " + countChars
     return
   }
 
   const upperCaseFirstChar = inputText.charAt(0).toUpperCase() + inputText.slice(1);
+  
+  countNotes++;
+  notesCount.textContent = "Notes counter: " + countNotes;
   
   let notes = JSON.parse(localStorage.getItem("notes")) || [];
   console.log(notes.length);
@@ -69,4 +79,6 @@ notesContent.addEventListener("click", function(e){
 document.querySelector("#clear-all").addEventListener("click", function(){
   localStorage.removeItem("notes");
   notesContent.innerHTML = "";
+  countNotes = 0;
+  notesCount.textContent = "Notes counter: " + 0;
 })
